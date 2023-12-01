@@ -1,10 +1,14 @@
 from src.grammar import Grammar, Rule
-
+CONST_X = 13
+CONST_MOD = 567892342117
 
 class EarlyAlgo:
     def __init__(self, grammar: Grammar):
         self._levels = []
         self._grammar = grammar
+
+    def fit(self, grammar: Grammar):
+        return self.__init__(grammar)
 
     class _State:
         rule: Rule
@@ -20,9 +24,9 @@ class EarlyAlgo:
             return self.rule == other.rule and self.rule_pos == other.rule_pos and self.str_pos == other.str_pos
 
         def __hash__(self):
-            p = 13
+            p = CONST_X
             hash_ = self.str_pos
-            hash_ += (self.rule_pos * (p ** 2)) % 567892342117
+            hash_ += (self.rule_pos * (p ** 2)) % CONST_MOD
             k = 1
             for c in self.rule.str:
                 hash_ += ord(c) * (p ** (2 + k))
@@ -61,38 +65,38 @@ class EarlyAlgo:
             return len(self._levels[level_id]) != prev_sz
         return False
 
-    def scan(self, _id: int, letter: str):
+    def apply_scan(self, _id: int, letter: str):
         changed = False
         for it in self._levels[_id]:
             changed |= self._scan(it, _id, letter[_id])
         return changed
 
-    def predict(self, _id: int) -> bool:
+    def apply_predict(self, _id: int) -> bool:
         changed = False
         its = [i for i in self._levels[_id]]
         for it in its:
             changed |= self._predict(it, _id)
         return changed
 
-    def complete(self, _id: int) -> bool:
+    def apply_complete(self, _id: int) -> bool:
         changed = False
         its = [i for i in self._levels[_id]]
         for it in its:
             changed |= self._complete(it, _id)
         return changed
 
-    def has_word(self, word: str) -> bool:
+    def predict(self, word: str) -> bool:
         self.init_levels(word)
         changed = True
         while changed:
-            changed = self.complete(0)
-            changed |= self.predict(0)
+            changed = self.apply_complete(0)
+            changed |= self.apply_predict(0)
         for _id in range(len(word)):
-            self.scan(_id, word)
+            self.apply_scan(_id, word)
             changed = True
             while changed:
-                changed = self.complete(_id + 1)
-                changed |= self.predict(_id + 1)
+                changed = self.apply_complete(_id + 1)
+                changed |= self.apply_predict(_id + 1)
         result = self._State(Rule('#->S'), 4, 0)
         for state in self._levels[len(word)]:
             if state == result:

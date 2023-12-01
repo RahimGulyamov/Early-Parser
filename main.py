@@ -8,6 +8,6 @@ words_to_check = list()
 early = EarlyAlgo(Grammar(document, words_to_check))
 
 for i in range(1, int(words_to_check[0]) + 1):
-    print('Yes' if early.has_word(words_to_check[i]) else 'No')
+    print('Yes' if early.predict(words_to_check[i]) else 'No')
 
 

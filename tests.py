@@ -14,7 +14,7 @@ class AlgoTests(TestCase):
         words_to_check = list()
         early = self.get_early(number, words_to_check)
         for i in range(int(words_to_check[0])):
-            self.assertEqual(result[number][i], early.has_word(words_to_check[i + 1]))
+            self.assertEqual(result[number][i], early.predict(words_to_check[i + 1]))
 
     def test(self):
         for j in range(10):
