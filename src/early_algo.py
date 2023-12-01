@@ -24,12 +24,11 @@ class EarlyAlgo:
             return self.rule == other.rule and self.rule_pos == other.rule_pos and self.str_pos == other.str_pos
 
         def __hash__(self):
-            p = CONST_X
             hash_ = self.str_pos
-            hash_ += (self.rule_pos * (p ** 2)) % CONST_MOD
+            hash_ += (self.rule_pos * (CONST_X ** 2)) % CONST_MOD
             k = 1
             for c in self.rule.str:
-                hash_ += ord(c) * (p ** (2 + k))
+                hash_ += ord(c) * (CONST_X ** (2 + k))
                 k += 1
             return hash_
 
