@@ -39,5 +39,3 @@ python main.py
 ```shell
 python3 tests.py
 ```
-
-`__init__` класса `EarlyAlgo` это по сути `fit`, `has_word` это `predict`
