@@ -1,0 +1,20 @@
+6 14 9
+SVPOTD
+howarentmscyd-
+S->S-V-P-O-T
+S->T-S-V-P-O
+S->S-V-P-OD
+S->howar
+V->went
+P->to
+O->moscowD
+T->yesterdayD
+D->
+S
+6
+howar-went-to-moscow-yesterday
+howar-to-moscow-went
+yesterday-howar-went-to-moscow
+yesterday-howar-went-moscow
+yesterday-howar-went-to-moscow
+howar-went-to-moscow

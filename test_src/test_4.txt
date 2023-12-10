@@ -1,0 +1,15 @@
+3 4 6
+STF
+abcd
+S->TS
+S->Tc
+T->FbT
+T->Fd
+F->
+F->a
+S
+5
+adc
+abadadc
+dddddabadadc
+cdddddabadac

@@ -1,0 +1,12 @@
+1 2 2
+S
+ab
+S->abb
+S->
+S
+5
+abb
+babba
+ababba
+
+aaabbabbabba

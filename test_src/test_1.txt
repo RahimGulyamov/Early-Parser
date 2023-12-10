@@ -1,0 +1,18 @@
+4 2 8
+SABC
+ab
+S  ->S
+S->aB
+A-> Ba
+A->a
+A->
+B-> ABC
+B ->b
+C->  BA
+S
+5
+abb
+babba
+ababba
+
+aaabbabbabba
