@@ -1,0 +1,12 @@
+4 1 5
+SCDE
+e
+S->CDE
+S->
+C->
+D->
+E->e
+S
+3
+eee
+e
